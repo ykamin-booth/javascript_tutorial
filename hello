@@ -1,0 +1,2 @@
+#!/home/ubuntu/.nvm/versions/node/v10.22.0/bin/node
+console.log("hello, world!");
