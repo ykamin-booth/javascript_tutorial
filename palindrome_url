@@ -1,0 +1,16 @@
+#!/home/ubuntu/.nvm/versions/node/v10.22.0/bin/node
+
+let urllib = require("urllib");
+let Phrase = require("skamin-palindrome");
+let url = 'https://cdn.learnenough.com/phrases.txt'
+
+urllib.request(url, { followRedirect: true }, function(error, data, response) {
+  let body  = data.toString();
+  let lines = body.split("\n");
+  let mlines = lines.map(line => new Phrase(line))
+  let palindromes = mlines.filter(line => line.palindrome());
+
+  palindromes.forEach(function(palindrome) {
+    console.log("palindrome detected:", palindrome.content);
+  });
+});

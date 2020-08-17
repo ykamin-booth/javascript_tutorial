@@ -1,0 +1,17 @@
+#!/home/ubuntu/.nvm/versions/node/v10.22.0/bin/node
+
+let fs = require("fs");
+let Phrase = require("skamin-palindrome");
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+let writeText = new Array;
+text.split("\n").forEach(function(line) {
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()) {
+    writeText.push(line);
+  }
+});
+fs.writeFile('palindromes.txt', writeText.join("\n"), function (err) {
+  if (err) return console.log(err);
+  console.log('Palindromes > palindromes.txt');
+});

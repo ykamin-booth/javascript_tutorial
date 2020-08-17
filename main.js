@@ -4,7 +4,6 @@ function palindromeTester(event) {
   event.preventDefault()
   let phrase = new Phrase(event.target.phrase.value);
   let palindromeResult = document.querySelector("#palindromeResult");
-  
   if (phrase.palindrome()) {
     palindromeResult.innerHTML = `<strong>"${phrase.content}"</strong> is a palindrome!`;
   } else {
@@ -18,3 +17,4 @@ form.addEventListener("submit", function(event) {
   palindromeTester(event);
 });
 });
+
